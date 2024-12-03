@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Surpresa</title>
+</head>
+<body>
+    <!-- Adicionando a música com autoplay e muted -->
+    <audio id="audio" loop muted>
+        <source src="Bruno Mars - Just the Way You Are.mp3" type="audio/mp3">
+        <source src="Bruno Mars - Just the Way You Are.ogg" type="audio/ogg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <!-- Botão para ativar a música, a animação do coração e a escrita da mensagem -->
+    <button id="playButton" onclick="startMusicAndMessage()">
+        <span class="button-text">Clique para começar a surpresa</span>
+        <i class="fa fa-play"></i>
+    </button>
+
+    <!-- Exibindo o coração e a mensagem -->
+    <div class="heart" id="heart"></div>
+    <h1 id="message"></h1>
+
+    <script>
+        function startMusicAndMessage() {
+            var audio = document.getElementById("audio");
+            var messageElement = document.getElementById("message");
+            var playButton = document.getElementById("playButton");
+            var heart = document.getElementById("heart");
+
+            // Começa a música (retira o mudo)
+            audio.muted = false;
+            audio.play();
+
+            // Inicia a animação do coração
+            heart.classList.add("start-heart-animation");
+
+            // Escreve a mensagem letra por letra
+            var message = "Meu amor, hoje é um dia muito especial, pois celebramos a dádiva da sua vida. Cada momento ao seu lado é uma alegria sem fim, e cada sorriso seu é a luz que ilumina meu mundo. Neste dia, quero te desejar um ano repleto de felicidade, amor e conquistas, porque você merece tudo de mais lindo que a vida tem a oferecer.";
+            var i = 0;
+            playButton.style.display = "none"; // Esconde o botão após o clique
+
+            function typeMessage() {
+                if (i < message.length) {
+                    messageElement.innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(typeMessage, 100); // Ajuste o tempo aqui para controlar a velocidade da digitação
+                }
+            }
+
+            // Inicia a digitação da mensagem
+            typeMessage();
+        }
+    </script>
+</body>
+</html>

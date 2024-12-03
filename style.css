@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0b1522;
+    flex-direction: column;
+    text-align: center;
+}
+
+.heart {
+    height: 70px;
+    width: 70px;
+    background-color: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    opacity: 0; /* Inicialmente, o coração estará invisível */
+}
+
+.heart.start-heart-animation {
+    animation: heart 0.6s linear infinite; /* A animação começa ao adicionar a classe */
+    opacity: 1; /* Torna o coração visível quando a animação começa */
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    top: -50%;
+    left: 0;
+    border-radius: 50px;
+    box-shadow: -10px -10px 90px rgba(242, 0, 68, 0.8);
+}
+
+.heart::after {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    right: -50%;
+    top: 0;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px rgba(242, 0, 68, 0.8);
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    font-style: oblique;
+    font-size: 24px;  /* Ajusta o tamanho da fonte */
+    line-height: 1.5; /* Aumenta o espaçamento entre as linhas */
+    max-width: 390px; /* Limita a largura do texto à largura de uma tela de iPhone 12 */
+    margin: 0 auto; /* Centraliza o texto horizontalmente */
+    padding: 10px;
+    bottom: -100px;  /* Ajusta a posição do texto em relação ao coração */
+    transform: translateX(0); /* Centraliza ainda mais o texto em relação ao seu posicionamento */
+}
+
+
+/* Estilo do botão de Play */
+#playButton {
+    background: linear-gradient(45deg, #f20044, #ff3d6a);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+
+#playButton .button-text {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#playButton i {
+    font-size: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito ao passar o mouse */
+#playButton:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff3d6a, #f20044);
+}
+
+#playButton:focus {
+    outline: none;
+}
+
+#playButton:hover i {
+    transform: rotate(20deg);
+}
