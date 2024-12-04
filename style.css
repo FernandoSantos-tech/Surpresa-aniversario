@@ -78,7 +78,6 @@ h1 {
     transform: translateX(0); /* Centraliza ainda mais o texto em relação ao seu posicionamento */
 }
 
-
 /* Estilo do botão de Play */
 #playButton {
     background: linear-gradient(45deg, #f20044, #ff3d6a);
@@ -89,7 +88,7 @@ h1 {
     cursor: pointer;
     border-radius: 50px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    transition: none;  /* Remove a transição */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,6 +98,7 @@ h1 {
     transform: translate(-50%, -50%); /* Ajusta a posição para ficar exatamente no centro */
     font-family: 'Arial', sans-serif;
     text-transform: uppercase;
+    z-index: 1000; /* Garante que o botão fique acima dos outros elementos */
 }
 
 #playButton .button-text {
@@ -109,19 +109,13 @@ h1 {
 
 #playButton i {
     font-size: 25px;
-    transition: transform 0.3s ease-in-out;
 }
 
-/* Efeito ao passar o mouse */
+/* Remover efeito de hover */
 #playButton:hover {
     background: linear-gradient(45deg, #ff3d6a, #f20044);
-    cursor: pointer;
 }
 
 #playButton:focus {
     outline: none;
-}
-
-#playButton:hover i {
-    transform: rotate(20deg);
 }
